@@ -116,3 +116,9 @@ say $tx->req->to_string;
 
 # ^^ - note the correct 'Content-Type' header and 'Content-Length'.
 say $tx->result->body;
+
+## Proxies
+##========
+my $px_ua = Mojo::UserAgent->new;
+my $proxy = $px_ua->proxy->detect;
+p $proxy;

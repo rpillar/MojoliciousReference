@@ -87,10 +87,14 @@ my $headers = $tx->result->json;
 while ( my ($key, $value) = each %{ $headers->{ headers } } ) {
     say $key, " : ", $value;
 }
+say "======";
 say $headers->{ headers }->%*;
-foreach my ( $key, $value ) ( $headers->{ headers }->%* ) {
-    say $key, " : ", $value;
-}
+say $headers->{ headers }->{Host};
+say "======";
+# I'm not sure why this doesn't work - use the while / each construct ^^
+#foreach my ( $key, $value ) ( $headers->{ headers }->%* ) {
+#    say $key, " : ", $value;
+#}
 
 # It should be noted that the Mojo framework will use an object's 'TO_JSON" method to encode
 # the json. For example :-
